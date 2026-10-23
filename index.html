@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DOTA 2: ИСПЫТАНИЕ</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main id="app">
+    <section class="screen is-active" id="screen-menu">
+      <header>
+        <h1>DOTA 2: ИСПЫТАНИЕ</h1>
+        <p>Четыре режима. Проверь, насколько хорошо ты знаешь игру.</p>
+      </header>
+      <div class="modes-grid">
+        <button class="mode-card" data-mode="hero" type="button">
+          <div class="mode-card__emoji">🦸</div>
+          <div class="mode-card__title">Угадай героя</div>
+          <div class="mode-card__description">Определи героя по его способностям</div>
+          <div class="mode-card__cta">Играть →</div>
+        </button>
+        <button class="mode-card" data-mode="build" type="button">
+          <div class="mode-card__emoji">⚔️</div>
+          <div class="mode-card__title">Угадай сборку</div>
+          <div class="mode-card__description">Узнай героя по набору предметов</div>
+          <div class="mode-card__cta">Играть →</div>
+        </button>
+        <button class="mode,card" data-mode="item" type="button">
+          <div class="mode-card__emoji">🛡️</div>
+          <div class="mode-card__title">Угадай предмет</div>
+          <div class="mode-card__description">Определи предмет по компонентам</div>
+          <div class="mode-card__cta">Играть →</div>
+        </button>
+        <button class="mode-card" data-mode="quote" type="button">
+          <div class="mode-card__emoji">💬</div>
+          <div class="mode-card__title">Угадай по цитате</div>
+          <div class="mode-card__description">Определи, кому принадлежит реплика</div>
+          <div class="mode-card__cta">Играть →</div>
+        </button>
+      </div>
+      <p class="subtitle">Фанатский проект. Не связан с Valve.</p>
+    </section>
+    <section class="screen" id="screen-game">
+      <header>
+        <button id="btn-back" type="button">← В меню</button>
+        <h2 id="game-mode-title"></h2>
+        <div class="score-panel">
+          <span id="game-score">0</span>
+          <span id="game-lives">❤❤❤</span>
+          <span id="game-progress">1 / 10</span>
+        </div>
+      </header>
+      <div id="game-timer">
+        <div id="game-timer-fill"></div>
+      </div>
+      <div id="game-stage">
+        <div id="game-stub">
+          <div id="game-stub-emoji">🦸</div>
+          <h3 id="game-stub-title"></h3>
+          <p>Режим скоро появится</p>
+          <button id="btn-stub-back" type="button">Вернуться в меню</button>
+        </div>
+        <div id="game-quiz">
+          <div id="game-kicker"></div>
+          <div id="game-clue"></div>
+          <h3 id="game-question"></h3>
+          <div id="game-answers"></div>
+        </div>
+      </div>
+    </section>
+    <section class="screen" id="screen-result">
+      <div class="result-card">
+        <div id="result-emoji">🌟</div>
+        <h2 id="result-title">Раунд окончен</h2>
+        <p id="result-subtitle"></p>
+        <div class="result-stats">
+          <span id="result-score">0</span>
+          <span id="result-correct">✅ 0</span>
+          <span id="result-best">📈 0</span>
+        </div>
+        <div class="result-actions">
+          <button id="btn-again" type="button">Играть снова</button>
+          <button id="btn-menu" type="button">В меню</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="js/quiz.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
