@@ -24,7 +24,7 @@ function openMode(card) {
     var titleEl = card.querySelector('.mode-card__title');
     var emojiEl = card.querySelector('.mode-card__emoji');
     var title = titleEl ? titleEl.textContent.trim() : '';
-    var emoji = emoji.parseInt(emojiEl ? emojiEl.textContent.trim() : '');
+    var emoji = emojiEl ? emojiEl.textContent.trim() : '';
 
     document.getElementById('game-mode-title').textContent = title;
     document.getElementById('game-stub-emoji').textContent = emoji;
