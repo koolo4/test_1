@@ -198,38 +198,22 @@ body {
 }
 
 #game-stub {
+    display: none;
+}
+
+#screen-game.is-stub #game-stub {
+    display: flex;
+}
+
+#screen-game.is-stub .score-panel,
+#screen-game.is-stub #game-timer,
+#screen-game.is-stub #game-quiz {
+    display: none;
+}
+
+#screen-game:not(.is-stub) #game-quiz {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    background-color: var(--panel);
-    border: 2px solid var(--gold);
-    border-radius: 10px;
-}
-
-#game-stub-emoji {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-#game-stub-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-}
-
-#game-stub p {
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-}
-
-#btn-stub-back {
-    background-color: transparent;
-    border: none;
-    color: var(--gold);
-    font-size: 0.9rem;
-    cursor: pointer;
 }
 
 /* RESULT */
