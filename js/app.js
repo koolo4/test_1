@@ -14,9 +14,7 @@ function showMenu() {
     if (window.Quiz && typeof window.Quiz.stop === 'function') {
         window.Quiz.stop();
     }
-    if (window.Quiz && typeof window.Quiz.stop === 'function') {
-        window.Quiz.stop();
-    }
+    showScreen('screen-menu');
     document.getElementById('screen-game').classList.remove('is-stub');
 }
 
