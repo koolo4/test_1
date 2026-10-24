@@ -1,4 +1,6 @@
-window.MODES = window.GAME_DATA || {};
+window.MODES = window.GAME_DATA || {
+
+};
 
 (function () {
     var state = null;
@@ -216,10 +218,10 @@ window.MODES = window.GAME_DATA || {};
 
         el('result-emoji').textContent = record ? '🏆' : state.lives > 0 ? '⭐' : '💀';
         el('result-title').textContent = record ? 'Новый рекорд!' : state.lives > 0 ? 'Раунд окончен' : 'Испытание провалено';
-        el('result-subtitle').textContent = 'Верных ответов: ' + state.correct + ' из ' + state.rounds';
-        el('result-score').textContent = '🏅 Очки: ' + state.score';
-        el('result-correct').textContent = '✅ Верно: ' + state.correct';
-        el('result-best').textContent = '📈 Рекорд: ' + Math.max(previousBest, state.score);'
+        el('result-subtitle').textContent = 'Верных ответов: ' + state.correct + ' из ' + state.rounds;
+        el('result-score').textContent = '🏅 Очки: ' + state.score;
+        el('result-correct').textContent = '✅ Верно: ' + state.correct;
+        el('result-best').textContent = '📈 Рекорд: ' + Math.max(previousBest, state.score);
         var again = el('btn-again');
         if (again) {
             again.onclick = function () {
