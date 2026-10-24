@@ -454,3 +454,11 @@ button:focus-visible {
         padding: 1rem;
     }
 }
+
+/* Рекорд на карточке режима */
+.mode-card__best {
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: var(--gold);
+}
