@@ -1,5 +1,6 @@
-const path = require('path');
 const fs = require('fs');
+const path = require('path');
+const vm = require('vm');
 const assert = require('assert');
 
 const root = path.join(__dirname, '..');
@@ -13,8 +14,7 @@ assert.strictEqual(modeCardLines.length, 4, 'index.html does not have exactly 4 
 
 // 2. Check index.html has exactly one tag for each js file in the specified order
 const jsFiles = ['data.js', 'quiz.js', 'app.js'];
-const jsTags = jsFiles.map(js => `<script src="js/${js}"></script>`);
-const jsTagStrings = jsTags.join('\n');
+const jsTagStrings = jsFiles.map(js => `<script src="js/${js}"></script>`).join('\n');
 const jsTagCount = indexHtml.split(jsTagStrings).length - 1;
 assert.strictEqual(jsTagCount, 1, 'index.html does not have exactly one tag for each js file in the specified order');
 
@@ -35,15 +35,16 @@ assert.ok(Object.keys(gameData).length >= 4, 'js/data.js did not create window.G
 // 5. Check js/quiz.js loads in the same vm after data.js and creates window.Quiz
 const quizJsPath = path.join(root, 'js', 'quiz.js');
 const quizJs = fs.readFileSync(quizJsPath, 'utf8');
-const quizVm = vm.createContext({});
-vm.runInNewContext(quizJs, quizVm, { filename: quizJsPath });
-const quiz = quizVm.window.Quiz;
+vm.runInNewContext(quizJs, dataVm, { filename: quizJsPath });
+const quiz = dataVm.window.Quiz;
 assert.ok(quiz, 'js/quiz.js did not create window.Quiz');
 assert.strictEqual(typeof quiz, 'object', 'js/quiz.js did not create window.Quiz as an object');
+assert.strictEqual(typeof quiz.start, 'function', 'no Quiz.start');
+assert.strictEqual(typeof quiz.stop, 'function', 'no Quiz.stop');
+assert.strictEqual(typeof quiz.best, 'function', 'no Quiz.best');
 
 // 6. Check window.MODES === window.GAME_DATA
-const modes = dataVm.window.MODES;
-assert.strictEqual(modes, gameData, 'window.MODES is not equal to window.GAME_DATA');
+assert.strictEqual(dataVm.window.MODES, gameData, 'window.MODES is not equal to window.GAME_DATA');
 
 // 7. Check Quiz.best('hero') returns 0 when the storage is empty
 const localStorage = {
