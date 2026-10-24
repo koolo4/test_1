@@ -17,7 +17,7 @@ window.GAME_DATA = {
             { clue: "Способность: <strong>Invoke</strong>", answer: "Invoker" },
             { clue: "Способность: <strong>Sun Strike</strong>", answer: "Invoker" },
             { clue: "Способность: <strong>Omnislash</strong>", answer: "Juggernaut" },
-            { clue: "Способность: <strong>Blade Fury</strong>", answer: "Juggernaut" },
+            { clue: "Способность: <strong>Blade Fury</strong>", answer: "Juggand" },
             { clue: "Способность: <strong>Laguna Blade</strong>", answer: "Lina" },
             { clue: "Способность: <strong>Light Strike Array</strong>", answer: "Lina" },
             { clue: "Способность: <strong>Finger of Death</strong>", answer: "Lion" },
@@ -31,7 +31,15 @@ window.GAME_DATA = {
             { clue: "Способность: <strong>Ball Lightning</strong>", answer: "Storm Spirit" },
             { clue: "Способность: <strong>Static Remnant</strong>", answer: "Storm Spirit" },
             { clue: "Способность: <strong>Thundergod's Wrath</strong>", answer: "Zeus" },
-            { clue: "Способность: <strong>Arc Lightning</strong>", answer: "Zeus" }
+            { clue: "Способность: <strong>Arc Lightning</strong>", answer: "Zeus" },
+            { clue: "Способность: <strong>Stifling Dagger</strong>", answer: "Phantom Assassin" },
+            { clue: "Способность: <strong>Coup de Grace</strong>", answer: "Phantom Assassin" },
+            { clue: "Способность: <strong>Chronosphere</strong>", answer: "Faceless Void" },
+            { clue: "Способность: <strong>Time Walk</strong>", answer: "Faceless Void" },
+            { clue: "Способность: <strong>Powershot</strong>", answer: "Windranger" },
+            { clue: "Способность: <strong>Focus Fire</strong>", answer: "Windranger" },
+            { clue: "Способность: <strong>God's Strength</strong>", answer: "Sven" },
+            { clue: "Способность: <strong>Storm Hammer</strong>", answer: "Sven" }
         ]
     },
 
@@ -52,7 +60,13 @@ window.GAME_DATA = {
             { clue: "<strong>Blink Dagger</strong> · <strong>Aether Lens</strong> · <strong>Aghanim's Shard</strong> · <strong>Glimmer Cape</strong> · <strong>Force Staff</strong> · <strong>Tranquil Boots</strong>", answer: "Lion" },
             { clue: "<strong>Blink Dagger</strong> · <strong>Aghanim's Scepter</strong> · <strong>Blade Mail</strong> · <strong>Heart of Tarrasque</strong> · <strong>Boots of Travel</strong> · <strong>Black King Bar</strong>", answer: "Pudge" },
             { clue: "<strong>Black King Bar</strong> · <strong>Blink Dagger</strong> · <strong>Silver Edge</strong> · <strong>Butterfly</strong> · <strong>Satanic</strong> · <strong>Power Treads</strong>", answer: "Shadow Fiend" },
-            { clue: "<strong>Aether Lens</strong> · <strong>Aghanim's Scepter</strong> · <strong>Octarine Core</strong> · <strong>Kaya and Sange</strong> · <strong>Boots of Travel</strong> · <strong>Refresher Orb</strong>", answer: "Zeus" }
+            { clue: "<strong>Aether Lens</strong> · <strong>Aghanim's Scepter</strong> · <strong>Octarine Core</strong> · <strong>Kaya and Sange</strong> · <strong>Boots of Travel</strong> · <strong>Refresher Orb</strong>", answer: "Zeus" },
+            { clue: "<strong>Desolator</strong> · <strong>Black King Bar</strong> · <strong>Butterfly</strong> · <strong>Daedalus</strong> · <strong>Satanic</strong> · <strong>Power Treads</strong>", answer: "Phantom Assassin" },
+            { clue: "<strong>Mask of Madness</strong> · <strong>Maelstrom</strong> · <strong>Black King Bar</strong> · <strong>Butterfly</strong> · <strong>Daedalus</strong> · <strong>Power Treads</strong>", answer: "Faceless Void" },
+            { clue: "<strong>Dragon Lance</strong> · <strong>Hurricane Pike</strong> · <strong>Maelstrom</strong> · <strong>Black King Bar</strong> · <strong>Daedalus</strong> · <strong>Power Treads</strong>", answer: "Sniper" },
+            { clue: "<strong>Bloodstone</strong> · <strong>Octarine Core</strong> · <strong>Shiva's Guard</strong> · <strong>Linken's Sphere</strong> · <strong>Boots of Travel</strong> · <strong>Aghanim's Scepter</strong>", answer: "Storm Spirit" },
+            { clue: "<strong>Maelstrom</strong> · <strong>Gleipnir</strong> · <strong>Black King Bar</strong> · <strong>Daedalus</strong> · <strong>Satanic</strong> · <strong>Power Treads</strong>", answer: "Windranger" },
+            { clue: "<strong>Echo Sabre</strong> · <strong>Black King Bar</strong> · <strong>Assault Cuirass</strong> · <strong>Daedalus</strong> · <strong>Satanic</strong> · <strong>Power Treads</strong>", answer: "Sven" }
         ]
     },
 
@@ -75,7 +89,13 @@ window.GAME_DATA = {
             { clue: "Компоненты: <strong>Mystic Staff</strong> · <strong>Ultimate Orb</strong> · <strong>Void Stone</strong><br>Цена: <strong>5675</strong>", answer: "Scythe of Vyse" },
             { clue: "Компоненты: <strong>Morbid Mask</strong> · <strong>Claymore</strong> · <strong>Reaver</strong><br>Цена: <strong>5050</strong>", answer: "Satanic" },
             { clue: "Компоненты: <strong>Skull Basher</strong> · <strong>Vanguard</strong><br>Цена: <strong>6400</strong>", answer: "Abyssal Blade" },
-            { clue: "Компоненты: <strong>Energy Booster</strong> · <strong>Ring of Health</strong> · <strong>Recipe</strong><br>Цена: <strong>2300</strong>", answer: "Aether Lens" }
+            { clue: "Компоненты: <strong>Energy Booster</strong> · <strong>Ring of Health</strong> · <strong>Recipe</strong><br>Цена: <strong>2300</strong>", answer: "Aether Lens" },
+            { clue: "Компоненты: <strong>Crystalys</strong> · <strong>Demon Edge</strong> · <strong>Recipe</strong><br>Цена: <strong>5150</strong>", answer: "Daedalus" },
+            { clue: "Компоненты: <strong>Mithril Hammer</strong> · <strong>Mithril Hammer</strong> · <strong>Recipe</strong><br>Цена: <strong>3500</strong>", answer: "Desolator" },
+            { clue: "Компоненты: <strong>Perseverance</strong> · <strong>Chainmail</strong> · <strong>Robe of the Magi</strong><br>Цена: <strong>4750</strong>", answer: "Linken's Sphere" },
+            { clue: "Компоненты: <strong>Mystic Staff</strong> · <strong>Platemail</strong> · <strong>Recipe</strong><br>Цена: <strong>4850</strong>", answer: "Shiva's Guard" },
+            { clue: "Компоненты: <strong>Maelstrom</strong> · <strong>Hyperstone</strong> · <strong>Recipe</strong><br>Цена: <strong>5600</strong>", answer: "Gleipnir" },
+            { clue: "Компоненты: <strong>Oblivion Staff</strong> · <strong>Oblivion Staff</strong> · <strong>Recipe</strong><br>Цена: <strong>4100</strong>", answer: "Echo Sabre" }
         ]
     },
 
@@ -98,7 +118,11 @@ window.GAME_DATA = {
             { clue: "<em>«So many souls...»</em>", answer: "Shadow Fiend" },
             { clue: "<em>«One shot, one kill.»</em>", answer: "Sniper" },
             { clue: "<em>«I'm the storm!»</em>", answer: "Storm Spirit" },
-            { clue: "<em>«You can't run from heaven.»</em>", answer: "Zeus" }
+            { clue: "<em>«You can't run from heaven.»</em>", answer: "Zeus" },
+            { clue: "<em>«The blade finds its mark.»</em>", answer: "Phantom Assassin" },
+            { clue: "<em>«Time is on my side.»</em>", answer: "Faceless Void" },
+            { clue: "<em>«One step ahead.»</em>", answer: "Windranger" },
+            { clue: "<em>«Strength is everything.»</em>", answer: "Sven" }
         ]
     }
 };
