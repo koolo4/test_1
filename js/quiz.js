@@ -166,6 +166,21 @@ window.MODES = window.GAME_DATA || {};
         clearTimer();
         var mode = state.mode;
         el('result-emoji').textContent = state.lives > 0 ? '🏆' : '💀';
+        var mode = state.mode;
+        var id = modeKey(mode);
+        var previousBest = readBest(id);
+        var record = state.score > previousBest;
+
+        if (record) {
+            writeBest(id, state.score);
+            el('result-title').textContent = 'Новый рекорд!';
+        } else {
+            el('result-title').textContent = state.lives > 0 ? 'Раунд окончен' : 'Испытание провалено';
+        }
+        el('result-subtitle').textContent = 'Верных ответов: ' + state.correct + ' из ' + state.rounds;
+        el('result-score').textContent = String(state.score);
+        el('result-correct').textContent = '✅ ' + state.correct;
+        el('result-best').textContent = '📈 ' + Math.max(previousBest, state.score);
         el('result-title').textContent = state.lives > 0 ? 'Раунд окончен' : 'Испытание провалено';
         el('result-subtitle').textContent = 'Верных ответов: ' + state.correct + ' из ' + state.rounds;
         el('result-score').textContent = String(state.score);
