@@ -42,9 +42,14 @@ window.MODES = window.GAME_DATA || {};
     }
 
     function updateKicker(left) {
+        var seconds = typeof left === 'number' ? Math.ceil(left / 1000) : null;
+        if (seconds === state.lastShownSecond) {
+            return;
+        }
+        state.lastShownSecond = seconds;
         var text = 'Раунд ' + (state.roundIndex + 1) + ' из ' + state.rounds;
-        if (typeof left === 'number') {
-            text += ' · ' + Math.ceil(left / 1000) + ' с';
+        if (seconds !== null) {
+            text += ' · ' + seconds + ' с';
         }
         el('game-kicker').textContent = text;
     }
@@ -53,6 +58,7 @@ window.MODES = window.GAME_DATA || {};
         clearTimer();
         var total = state.mode.timePerRound * 1000;
         var started = Date.now();
+        state.lastShownSecond = null;
         el('game-timer-fill').style.width = '100%';
         updateKicker(total);
         timerId = setInterval(function () {
@@ -211,9 +217,9 @@ window.MODES = window.GAME_DATA || {};
         el('result-emoji').textContent = record ? '🏆' : state.lives > 0 ? '⭐' : '💀';
         el('result-title').textContent = record ? 'Новый рекорд!' : state.lives > 0 ? 'Раунд окончен' : 'Испытание провалено';
         el('result-subtitle').textContent = 'Верных ответов: ' + state.correct + ' из ' + state.rounds;
-        el('result-score').textContent = String(state.score);
-        el('result-correct').textContent = '✅ ' + state.correct;
-        el('result-best').textContent = '📈 ' + Math.max(previousBest, state.score);
+        el('result-score').textContent = '🏅 Очки: ' + state.score;
+        el('result-correct').textContent = '✅ Верно: ' + state.correct;
+        el('result-best').textContent = '📈 Рекорд: ' + Math.max(previousBest, state.score);
         var again = el('btn-again');
         if (again) {
             again.onclick = function () {
@@ -247,7 +253,8 @@ window.MODES = window.GAME_DATA || {};
             streak: 0,
             answers: answers,
             locked: false,
-            correctIndex: -1
+            correctIndex: -1,
+            lastShownSecond: null
         };
 
         if (state.pool.length < state.rounds) {
