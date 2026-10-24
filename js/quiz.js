@@ -1,4 +1,4 @@
-window.MODES = window.GAME_DATA || {};
+window.MODES = window.GAME_DATA || {}
 
 (function () {
     var state = null;
@@ -162,10 +162,43 @@ window.MODES = window.GAME_DATA || {};
         renderRound();
     }
 
+    function modeKey(mode) {
+        if (mode.id) {
+            return mode.id;
+        }
+
+        for (var key in window.MODES) {
+            if (window.MODES[key] === mode) {
+                return key;
+            }
+        }
+
+        return 'default';
+    }
+
+    function bestKey(id) {
+        return 'dota2quiz.best.' + id;
+    }
+
+    function readBest(id) {
+        try {
+            var value = window.localStorage.getItem(bestKey(id));
+            return value === null ? 0 : parseInt(value, 10) || 0;
+        } catch (e) {
+            return 0;
+        }
+    }
+
+    function writeBest(id, score) {
+        try {
+            window.localStorage.setItem(bestKey(id), String(score));
+        } catch (e) {
+            // приватный режим или переполнение — играем без рекорда
+        }
+    }
+
     function finish() {
         clearTimer();
-        var mode = state.mode;
-        el('result-emoji').textContent = state.lives > 0 ? '🏆' : '💀';
         var mode = state.mode;
         var id = modeKey(mode);
         var previousBest = readBest(id);
@@ -173,19 +206,14 @@ window.MODES = window.GAME_DATA || {};
 
         if (record) {
             writeBest(id, state.score);
-            el('result-title').textContent = 'Новый рекорд!';
-        } else {
-            el('result-title').textContent = state.lives > 0 ? 'Раунд окончен' : 'Испытание провалено';
         }
+
+        el('result-emoji').textContent = record ? '🏆' : state.lives > 0 ? '⭐' : '💀';
+        el('result-title').textContent = record ? 'Новый рекорд!' : state.lives > 0 ? 'Раунд окончен' : 'Испытание провалено';
         el('result-subtitle').textContent = 'Верных ответов: ' + state.correct + ' из ' + state.rounds;
         el('result-score').textContent = String(state.score);
         el('result-correct').textContent = '✅ ' + state.correct;
         el('result-best').textContent = '📈 ' + Math.max(previousBest, state.score);
-        el('result-title').textContent = state.lives > 0 ? 'Раунд окончен' : 'Испытание провалено';
-        el('result-subtitle').textContent = 'Верных ответов: ' + state.correct + ' из ' + state.rounds;
-        el('result-score').textContent = String(state.score);
-        el('result-correct').textContent = '✅ ' + state.correct;
-        el('result-best').textContent = '📈 ' + state.score;
         var again = el('btn-again');
         if (again) {
             again.onclick = function () {
@@ -238,6 +266,7 @@ window.MODES = window.GAME_DATA || {};
 
     window.Quiz = {
         start: start,
-        stop: stop
+        stop: stop,
+        best: readBest
     };
 })();
