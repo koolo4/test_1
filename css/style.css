@@ -506,3 +506,23 @@ button:focus-visible {
         min-width: 0;
     }
 }
+
+/* Контраст HUD: жизни, счёт и надпись раунда читаются на тёмном фоне */
+#game-lives {
+    color: #ef5b53;
+    letter-spacing: 0.08em;
+    font-size: 1.05rem;
+}
+
+#game-score,
+#game-progress {
+    color: #cfd7e6;
+}
+
+#game-kicker {
+    color: #b6c0d2;
+}
+
+#game-timer-fill.is-low {
+    background-color: #e23c31;
+}
