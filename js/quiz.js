@@ -1,4 +1,4 @@
-window.MODES = window.GAME_DATA || {};(function () {
+(function () {
     var state = null;
     var timerId = null;
 
@@ -44,7 +44,7 @@ window.MODES = window.GAME_DATA || {};(function () {
         if (seconds === state.lastShownSecond) {
             return;
         }
-        state.lastShown, state.lastShownSecond = seconds;
+        state.lastShownSecond = seconds;
         var text = 'Раунд ' + (state.roundIndex + 1) + ' из ' + state.rounds;
         if (seconds !== null) {
             text += ' · ' + seconds + ' с';
@@ -57,6 +57,7 @@ window.MODES = window.GAME_DATA || {};(function () {
         var total = state.mode.timePerRound * 1000;
         var started = Date.now();
         state.lastShownSecond = null;
+        delete state.lastShown;
         el('game-timer-fill').style.width = '100%';
         el('game-timer-fill').classList.remove('is-low');
         updateKicker(total);
