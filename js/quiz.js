@@ -1,4 +1,4 @@
-window.MODES = window.GAME_DATA || {}
+window.MODES = window.GAME_DATA || {};
 
 (function () {
     var state = null;
