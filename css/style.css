@@ -462,3 +462,47 @@ button:focus-visible {
     letter-spacing: 0.04em;
     color: var(--gold);
 }
+/* Подписи чисел на экране результата */
+.result-stats {
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.result-stats span {
+    flex: 1 1 auto;
+    min-width: 120px;
+    padding: 0.6rem 0.4rem;
+    text-align: center;
+    background-color: rgba(217, 169, 78, 0.08);
+    border: 1px solid rgba(217, 169, 78, 0.25);
+    border-radius: 8px;
+    color: var(--text-main);
+    white-space: nowrap;
+}
+
+/* Длинные подсказки сборок не должны расползаться */
+#game-clue {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    line-height: 1.6;
+}
+
+#game-clue strong {
+    font-weight: 600;
+    color: var(--gold);
+}
+
+/* Таймер краснеет, когда времени меньше пяти секунд */
+#game-timer-fill.is-low {
+    background-color: var(--red);
+}
+
+@media (max-width: 420px) {
+    .result-stats {
+        flex-direction: column;
+    }
+
+    .result-stats span {
+        min-width: 0;
+    }
+}
