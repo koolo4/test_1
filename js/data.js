@@ -17,7 +17,7 @@ window.GAME_DATA = {
             { clue: "Способность: <strong>Invoke</strong>", answer: "Invoker" },
             { clue: "Способность: <strong>Sun Strike</strong>", answer: "Invoker" },
             { clue: "Способность: <strong>Omnislash</strong>", answer: "Juggernaut" },
-            { clue: "Способность: <strong>Blade Fury</strong>", answer: "Juggand" },
+            { clue: "Способность: <strong>Blade Fury</strong>", answer: "Juggernaut" },
             { clue: "Способность: <strong>Laguna Blade</strong>", answer: "Lina" },
             { clue: "Способность: <strong>Light Strike Array</strong>", answer: "Lina" },
             { clue: "Способность: <strong>Finger of Death</strong>", answer: "Lion" },
