@@ -60,13 +60,16 @@ window.MODES = window.GAME_DATA || {};
         var started = Date.now();
         state.lastShownSecond = null;
         el('game-timer-fill').style.width = '100%';
+        el('game-timer-fill').classList.remove('is-low');
         updateKicker(total);
         timerId = setInterval(function () {
             var left = total - (Date.now() - started);
             if (left < 0) {
                 left = 0;
             }
-            el('game-timer-fill').style.width = (left / total * 100) + '%';
+            var fill = el('game-timer-fill');
+            fill.style.width = (left / total * 100) + '%';
+            fill.classList.toggle('is-low', left <= 5000);
             updateKicker(left);
             if (left === 0) {
                 clearTimer();
