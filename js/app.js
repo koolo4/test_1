@@ -17,6 +17,7 @@ function showMenu() {
     }
     showScreen('screen-menu');
     document.getElementById('screen-game').classList.remove('is-stub');
+    renderBest();
 }
 
 function openMode(card) {
@@ -39,6 +40,37 @@ function openMode(card) {
     } else {
         game.classList.add('is-stub');
         showScreen('screen-game');
+    }
+}
+
+function renderBest() {
+    var cards = document.querySelectorAll('.mode-card');
+
+    for (var i = 0; i < cards.length; i++) {
+        var card = cards[i];
+        var mode = card.getAttribute('data-mode');
+        var best = window.Quiz && typeof window.Quiz.best === 'function' ? window.Quiz.best(mode) : 0;
+        var label = card.querySelector('.mode-card__best');
+
+        if (!best) {
+            if (label) {
+                label.parentNode.removeChild(label);
+            }
+            continue;
+        }
+
+        if (!label) {
+            label = document.createElement('div');
+            label.className = 'mode-card__best';
+            var description = card.querySelector('.mode-card__description');
+            if (description && description.nextSibling) {
+                card.insertBefore(label, description.nextSibling);
+            } else {
+                card.appendChild(label);
+            }
+        }
+
+        label.textContent = 'Рекорд: ' + best;
     }
 }
 
@@ -67,7 +99,11 @@ function bind() {
 }
 
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', bind);
+    document.addEventListener('DOMContentLoaded', function () {
+        bind();
+        renderBest();
+    });
 } else {
     bind();
+    renderBest();
 }
